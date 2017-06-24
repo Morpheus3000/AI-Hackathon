@@ -27,7 +27,7 @@ def main():
 
   print(audio_files)
 
-  speech.parse(audio_files)
+  speech.parse(audio_files, keys)
 
 
 if __name__ == '__main__':
