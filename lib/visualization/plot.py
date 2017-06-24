@@ -11,6 +11,7 @@ import time
 
 from scipy.ndimage.filters import gaussian_filter1d
 import ast
+import json
 
 
 def score(data_frame):
@@ -67,3 +68,42 @@ def statistics(data_frame):
   plt.legend(bbox_to_anchor=(1, 1), loc='upper left', ncol=1)
 
   plt.show()
+
+
+def topics(json_path):
+  with open(json_path, 'r') as f:
+    parsed = json.load(f)
+    print(json.dumps(parsed, indent=4, sort_keys=True))
+
+  events = parsed["operationProcessingResult"]['topicAssignments']
+
+  topic_assignments = [
+      (event['documentId'], event['topicId'], event['distance'])
+      for event in events]
+
+  unique_topics = set([x[1] for x in topic_assignments])
+
+  fig = plt.figure()
+  fig.add_subplot(121)
+
+  for topic in unique_topics:
+    x = []
+    y = []
+
+    for assignment in topic_assignments:
+      if topic == assignment[1]:
+        x.append(assignment[0])
+        y.append(assignment[2])
+
+    # x = gaussian_filter1d(x, 0.8)
+    # print(x)
+    # y = gaussian_filter1d(y, 0.8)
+    if len(x) > 2:
+      plt.plot(x, y, marker='o', label=topic)
+
+  # fig.add_subplot(122)
+  plt.legend(bbox_to_anchor=(1, 1), loc='upper left', ncol=1)
+
+  plt.show()
+
+  # print(sorted(topics, key=lambda x: (int(x[0]), float(x[2]))))

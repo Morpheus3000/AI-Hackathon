@@ -6,6 +6,7 @@ from lib.textAnalyticsAPI import api_update
 import yaml
 import os
 import pandas as pd
+import json
 
 
 def main():
@@ -47,7 +48,10 @@ def main():
   # print(speech_data)
 
   plot.statistics(speech_data)
-  # plot.keywords(speech_data)
+
+  json_path = 'data/topics_sample_output.json'
+  plot.topics(json_path)
+
 
 if __name__ == '__main__':
   main()
