@@ -129,3 +129,38 @@ def listen_mic(ms_asr, state):
             stream.stop_stream()
             stream.close()
         audio.terminate()
+
+def generate_sentiment_request(text):
+    request = {}
+    request["documents"] = [{"lang" : "en", "id" : 0, "text" : text}]
+    return json.dumps(request)
+
+def process_sentiment_request(json_request):
+    header = {
+    'Accept' : 'application/json',
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': '28d6776ec31844a1aeb1095be8d99192',
+    }
+    try:
+        conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+        
+        conn.request("POST", "/text/analytics/v2.0/sentiment", json_request, header)
+        response = conn.getresponse()
+        sentiment_data = response.read()
+        
+        conn.request("POST", "/text/analytics/v2.0/keyPhrases", json_request, header)
+        response = conn.getresponse()
+        key_phrase_data = response.read()
+        
+        conn.close()
+        return sentiment_data, key_phrase_data
+    except Exception as e:
+        print("[Errno {0}] {1}".format(e.errno, e.strerror))
+        return None 
+
+def get_sentiment_main(text):
+    sentiment_request = generate_sentiment_request(text)
+    sentiment_data, key_phrase_data = process_request(json_request)
+    sentiment_score = json.loads(sentiment_data)["documents"][0]
+    key_phrases = json.loads(key_phrase_data)["documents"][0]
+    return sentiment_score, key_phrases
