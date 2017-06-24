@@ -4,6 +4,7 @@ from lib.parsing import video
 
 import yaml
 import os
+import pandas as pd
 
 
 def main():
@@ -27,7 +28,13 @@ def main():
 
   print(audio_files)
 
-  speech.parse(audio_files, keys)
+  csv_path = 'data/csv/Demo.csv'
+  if not os.path.exists(csv_path):
+    speech_data = speech.parse(audio_files, keys)
+  else:
+    speech_data = pd.read_csv(csv_path)
+
+  print(speech_data)
 
 
 if __name__ == '__main__':

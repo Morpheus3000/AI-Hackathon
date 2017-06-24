@@ -4,7 +4,7 @@ import numpy as np
 import yaml
 from matplotlib.pyplot import imshow
 import time
-
+import pandas as pd
 
 from MASR import Microsoft_ASR
 
@@ -29,3 +29,5 @@ def parse(audio_files, keys):
   speech_data = pd.DataFrame(speech_data)
 
   speech_data.to_csv('data/csv/Demo.csv')
+
+  return speech_data
