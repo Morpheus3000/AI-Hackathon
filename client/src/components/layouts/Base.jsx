@@ -26,7 +26,7 @@ var Base = React.createClass({
                            transitionLeaveTimeout={300}
           >
             {React.cloneElement(<div className="ui-view">{this.props.children}</div> || <div />, { key: change })}
-          </ReactCSSTransitionGroup>}
+          </ReactCSSTransitionGroup>} 
         </div>
       </div>
     );

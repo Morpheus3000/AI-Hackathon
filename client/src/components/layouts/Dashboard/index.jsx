@@ -7,7 +7,7 @@ import $ from "jQuery";
 import classNames from "classnames";
 
 var HomePage = React.createClass({
-    
+
   componentWillMount: function() {
     this.setState({Height: $(window).height()});
   },
@@ -22,7 +22,7 @@ var HomePage = React.createClass({
   },
 
   getInitialState: function(){
-    
+
     return {
       uiElementsCollapsed: true,
       chartsElementsCollapsed: true,
@@ -46,39 +46,27 @@ var HomePage = React.createClass({
     const { pathname } = this.props.location;
 
     var title = <span><a href="http://startreact.com/" title="Start React" rel="home"><img src="http://startreact.com/wp-content/themes/dazzling-child/images/logo.png" alt="Start React" title="Start React" height="35px" />&nbsp;SB Admin React - StartReact.com</a></span>;
-    
-    return (
-        <div className="dashboard-page ui-view"> 
-          <div className="container-fluid"> 
-            <div className="row"> 
-              <div className="col-sm-3 col-md-2 sidebar"> 
-                <div className="text-center"> 
-                  <h2 className="brand">Ani Theme <br /><small>Free React.js Edition</small></h2> 
-                  <img src={require("../../../common/images/flat-avatar.png")} className="user-avatar" />
-                  <br /> 
-                  <Link to="/login" className="btn btn-white btn-outline btn-rounded btn-sm">Logout</Link> 
-                </div> 
 
-                <ul className="nav nav-sidebar"> 
+    return (
+        <div className="dashboard-page ui-view">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-sm-3 col-md-2 sidebar">
+                <div className="text-center">
+                  <img src={require("../../../common/images/logo2.png")} className="logo" />
+                <h2 className="brand">Meeting Analytics<br /></h2>
+                  <br />
+                  <Link to="/login" className="btn btn-white btn-outline btn-rounded btn-sm">Logout</Link>
+                </div>
+
+                <ul className="nav nav-sidebar">
                   <li>
                     <Link to="/dashboard/overview">Overview</Link>
-                  </li> 
-                  <li>
-                    <Link to="/dashboard/reports">Reports</Link>
-                  </li> 
-                  <li>
-                    <a href="http://startangular.com/product/ani-theme/">Free Angular version</a>
                   </li>
                   <li>
-                    <a href="http://www.strapui.com/ani-reactjs-theme">Premium React.js Edition</a>
-                  </li> 
-                  <li>
-                    <a href="http://www.strapui.com/ani-angularjs-theme">Premium AngularJS Edition</a>
-                  </li> 
-                  <li>
-                    <a href="http://www.strapui.com/themes/ani-laravel-theme/">Premium Laravel Edition</a>
-                  </li> 
-                </ul> 
+                    <Link to="/dashboard/reports">Reports</Link>
+                  </li>
+                </ul>
               </div>
 
                <ReactCSSTransitionGroup component="div"
@@ -89,9 +77,9 @@ var HomePage = React.createClass({
                   {React.cloneElement(<div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ng-scope ui-view">{this.props.children}</div> || <div />, { key: pathname })}
                 </ReactCSSTransitionGroup>
 
-                
-            </div> 
-          </div> 
+
+            </div>
+          </div>
         </div>
     );
   },
@@ -100,7 +88,7 @@ var HomePage = React.createClass({
     fetchData: function(params) {
       }
   }
-  
+
 });
 
 export default HomePage;
