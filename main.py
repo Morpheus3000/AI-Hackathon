@@ -1,6 +1,7 @@
 from lib.speechAPI import speech
 from lib.parsing import video
 from lib.visualization import plot
+from lib.textAnalyticsAPI import api_update
 
 import yaml
 import os
@@ -29,11 +30,18 @@ def main():
   if 0:
     print(audio_files)
 
-  csv_path = 'data/csv/Demo.csv'
+  demo_path = 'data/csv/Demo.csv'
   if not os.path.exists(csv_path):
     speech_data = speech.parse(audio_files, keys)
+    speech_data.to_csv('data/csv/Demo.csv')
   else:
     speech_data = pd.read_csv(csv_path)
+
+  score_path = 'data/csv/score.csv'
+  if not os.path.exists(score_path):
+    speech_data = api_update.data_frame(speech_data)
+    speech_data.to_csv('data/csv/Demo.csv')
+  else:
 
   if 0:
     print(speech_data)

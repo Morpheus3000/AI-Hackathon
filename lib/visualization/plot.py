@@ -19,8 +19,10 @@ def score(data_frame):
   fig = plt.figure()
   # ax = fig.add_subplot(111)
 
-  # y = list(data_frame['sentiment_score'])
-  # x = range(len(y))
+  y = list(data_frame['sentiment_score'])
+  x = range(len(y))
 
-  plt.plot(x, y[0, :])
+  # print()
+
+  plt.plot(x, y)
   plt.show()

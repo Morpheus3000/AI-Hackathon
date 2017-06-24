@@ -28,6 +28,4 @@ def parse(audio_files, keys):
 
   speech_data = pd.DataFrame(speech_data)
 
-  speech_data.to_csv('data/csv/Demo.csv')
-
   return speech_data
