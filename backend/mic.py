@@ -21,7 +21,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 CHUNK = 1000
-RECORD_SECONDS = 3
+RECORD_SECONDS = 5
 
 
 class Microsoft_ASR():
@@ -97,7 +97,21 @@ def speech_to_text(ms_asr, audio, state, frames, start_second):
     waveFile.close()
 
     text, confidence = ms_asr.transcribe(filename)
-    state['live_data'].append({'text': text, 'confidence': confidence, 'start_second': start_second})
+
+    if (text == ''):
+        return
+
+    sentiment_score, key_phrases = get_sentiment_main(text)
+
+    state['live_data'].append({
+        'text': text,
+        'confidence': confidence,
+        'start_second': start_second,
+        'sentiment': {
+            'sentiment_score': sentiment_score,
+            'key_phrases': key_phrases
+        }
+    })
 
 def listen_mic(ms_asr, state):
     audio = pyaudio.PyAudio()
@@ -137,9 +151,9 @@ def generate_sentiment_request(text):
 
 def process_sentiment_request(json_request):
     header = {
-    'Accept' : 'application/json',
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '28d6776ec31844a1aeb1095be8d99192',
+        'Accept' : 'application/json',
+        'Content-Type': 'application/json',
+        'Ocp-Apim-Subscription-Key': '28d6776ec31844a1aeb1095be8d99192',
     }
     try:
         conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
@@ -156,11 +170,15 @@ def process_sentiment_request(json_request):
         return sentiment_data, key_phrase_data
     except Exception as e:
         print("[Errno {0}] {1}".format(e.errno, e.strerror))
-        return None 
+        return None, None
 
 def get_sentiment_main(text):
     sentiment_request = generate_sentiment_request(text)
-    sentiment_data, key_phrase_data = process_request(json_request)
-    sentiment_score = json.loads(sentiment_data)["documents"][0]
-    key_phrases = json.loads(key_phrase_data)["documents"][0]
+    try:
+        sentiment_data, key_phrase_data = process_sentiment_request(sentiment_request)
+        sentiment_score = json.loads(sentiment_data)["documents"][0]
+        key_phrases = json.loads(key_phrase_data)["documents"][0]
+    except Exception as e:
+        print("[Error {}" % str(e))
+        return None, None
     return sentiment_score, key_phrases
