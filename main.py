@@ -20,33 +20,34 @@ def main():
   cap = video.parse(conference_video)
 
   # frame_count = video.frames(cap)
+  wavs_dir = 'data/wav'
   duration = video.duration(cap)
-  if not os.path.exists('data/wav'):
+  if not os.path.exists(wavs_dir):
     audio_files = video.audio(conference_video, duration)
   else:
     audio_files = [f for f in os.listdir(
-        'data/wav') if os.path.isfile(os.path.join('data/wav', f))]
+        wavs_dir) if os.path.isfile(os.path.join(wavs_dir, f))]
 
-  if 0:
-    print(audio_files)
+  # print(audio_files)
 
   demo_path = 'data/csv/Demo.csv'
-  if not os.path.exists(csv_path):
+  if not os.path.exists(demo_path):
     speech_data = speech.parse(audio_files, keys)
-    speech_data.to_csv('data/csv/Demo.csv')
+    speech_data.to_csv(demo_path)
   else:
-    speech_data = pd.read_csv(csv_path)
+    speech_data = pd.read_csv(demo_path)
 
   score_path = 'data/csv/score.csv'
   if not os.path.exists(score_path):
     speech_data = api_update.data_frame(speech_data)
-    speech_data.to_csv('data/csv/Demo.csv')
+    speech_data.to_csv(score_path)
   else:
+    speech_data = pd.read_csv(score_path)
 
-  if 0:
-    print(speech_data)
+  # print(speech_data)
 
-  plot.score(speech_data)
+  plot.statistics(speech_data)
+  # plot.keywords(speech_data)
 
 if __name__ == '__main__':
   main()

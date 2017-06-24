@@ -52,20 +52,26 @@ def duration(cap):
   return totaldurationMS
 
 
-def audio(path, duration):
+def audio(path, duration, overlap=5000):
 
-  audio_path = path[:path.find('/')] + "/wav" + path[path.find('/'):]
+  audio_path = path[:path.find('/')] + "/wavs" + path[path.find('/'):]
 
-  print(audio_path)
+  # print(os.path.exists(path))
 
   audio_files = []
 
   # Convert video to audiofiles
-  for ss in range(0, int(duration), 9000):
+  for ss in range(0, int(duration), overlap):
     hhmmss = time.strftime('%H:%M:%S', time.gmtime(ss / 1000))
     outfile = '%s.%s.wav' % (audio_path, ss)
+
+    # print('ffmpeg -y -i ' + path +
+    #       ' -ac 1 -ar 16000 -ss ' + hhmmss +
+    #       ' -t 00:00:10.0 -q:a 0 -map a '
+    #       + outfile)
+
     subprocess.call(
-        'ffmpeg -y -i ' + audio_path +
+        'ffmpeg -y -i ' + path +
         ' -ac 1 -ar 16000 -ss ' + hhmmss +
         ' -t 00:00:10.0 -q:a 0 -map a '
         + outfile, stdout=None, stderr=subprocess.STDOUT)
