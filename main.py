@@ -1,7 +1,7 @@
 from lib.speechAPI import speech
 from lib.parsing import video
 from lib.visualization import plot
-from lib.textAnalyticsAPI import api_update
+import lib.textAnalyticsAPI.update as update  # import api_update
 
 import yaml
 import os
@@ -40,14 +40,21 @@ def main():
 
   score_path = 'data/csv/score.csv'
   if not os.path.exists(score_path):
-    speech_data = api_update.data_frame(speech_data)
+    speech_data = update.text.data_frame(speech_data)
     speech_data.to_csv(score_path)
   else:
     speech_data = pd.read_csv(score_path)
 
   # print(speech_data)
 
-  plot.statistics(speech_data)
+  # plot.statistics(speech_data)
+
+  topics_path = 'data/csv/topics.csv'
+  if not os.path.exists(topics_path):
+    speech_data = update.topics.data_frame(speech_data)
+    speech_data.to_csv(topics_path)
+  else:
+    speech_data = pd.read_csv(topics_path)
 
   json_path = 'data/topics_sample_output.json'
   plot.topics(json_path)

@@ -28,7 +28,8 @@ def add_text_analysis(base_df, sentiment_data, key_phrase_data):
 
 def data_frame(base_df):
   json_request = api_requests.generate_json(base_df)
-  sentiment_data, key_phrase_data = api_requests.process(json_request)
+  sentiment_data, key_phrase_data = api_requests.proces_text(json_request)
+
   final_df = add_text_analysis(base_df, sentiment_data, key_phrase_data)
 
   return final_df
