@@ -85,7 +85,16 @@ class Microsoft_ASR():
             return ('', 0)
 
 
-def speech_to_text(ms_asr, filename):
+def speech_to_text(ms_asr, audio, frames, file_num):
+    filename = 'wavs/output.' + str(file_num) + '.wav'
+
+    waveFile = wave.open(filename, 'wb')
+    waveFile.setnchannels(CHANNELS)
+    waveFile.setsampwidth(audio.get_sample_size(FORMAT))
+    waveFile.setframerate(RATE)
+    waveFile.writeframes(b''.join(frames))
+    waveFile.close()
+
     text, confidence = ms_asr.transcribe(filename)
     print(text, confidence)
 
@@ -103,18 +112,12 @@ def mic_mode(ms_asr):
                 frames.append(data)
             print "Got %i frames, writing file %i" % (len(frames), file_num)
 
-            filename = 'wavs/output.' + str(file_num) + '.wav'
-            waveFile = wave.open(filename, 'wb')
-            waveFile.setnchannels(CHANNELS)
-            waveFile.setsampwidth(audio.get_sample_size(FORMAT))
-            waveFile.setframerate(RATE)
-            waveFile.writeframes(b''.join(frames))
-            waveFile.close()
+            copy_frames = list(frames)
 
             split = int(len(frames) - RATE / CHUNK)
             frames = frames[split:]   # Keep last second
 
-            thr = threading.Thread(target=speech_to_text, args=[ms_asr, filename], kwargs={})
+            thr = threading.Thread(target=speech_to_text, args=[ms_asr, audio, copy_frames, file_num], kwargs={})
             thr.start()
 
     finally:
@@ -132,12 +135,6 @@ if __name__ == '__main__':
     ms_asr.get_speech_token()
 
     mic_mode(ms_asr)
-
-    # if (len(sys.argv) > 1 and sys.argv[1] == 'mic'):
-    #   mic_mode()
-
-    # if (len(sys.argv) > 1 and sys.argv[1] == 'text'):
-    #   mic_mode()
 
 
 # app = Flask(__name__)
