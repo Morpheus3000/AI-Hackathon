@@ -1,6 +1,6 @@
 from lib.speechAPI import speech
 from lib.parsing import video
-
+from lib.visualization import plot
 
 import yaml
 import os
@@ -26,7 +26,8 @@ def main():
     audio_files = [f for f in os.listdir(
         'data/wav') if os.path.isfile(os.path.join('data/wav', f))]
 
-  print(audio_files)
+  if 0:
+    print(audio_files)
 
   csv_path = 'data/csv/Demo.csv'
   if not os.path.exists(csv_path):
@@ -34,8 +35,10 @@ def main():
   else:
     speech_data = pd.read_csv(csv_path)
 
-  print(speech_data)
+  if 0:
+    print(speech_data)
 
+  plot.score(speech_data)
 
 if __name__ == '__main__':
   main()
