@@ -1,4 +1,4 @@
-from lib.speech_to_text import speech_to_text
+from lib.speechAPI import speech_to_text
 from lib.parsing import video
 import yaml
 
