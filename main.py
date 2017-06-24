@@ -1,6 +1,7 @@
 from lib.speechAPI import speech_to_text
 from lib.parsing import video
 import yaml
+import os
 
 
 def main():
@@ -12,8 +13,17 @@ def main():
     keys = yaml.load(f)
 
   conference_video = 'data/Demo.mp4'
-  video.parse_video(conference_video)
+  cap = video.parse(conference_video)
 
+  # frame_count = video.frames(cap)
+  duration = video.duration(cap)
+  if not os.path.exists('data/wav'):
+    audio_files = video.audio(conference_video, duration)
+  else:
+    audio_files = [f for f in os.listdir(
+        'data/wav') if os.path.isfile(os.path.join('data/wav', f))]
+
+  print(audio_files)
 
 if __name__ == '__main__':
   main()
