@@ -1,5 +1,7 @@
-from lib.speechAPI import speech_to_text
+from lib.speechAPI import speech
 from lib.parsing import video
+
+
 import yaml
 import os
 
@@ -24,6 +26,9 @@ def main():
         'data/wav') if os.path.isfile(os.path.join('data/wav', f))]
 
   print(audio_files)
+
+  speech.parse(audio_files)
+
 
 if __name__ == '__main__':
   main()
