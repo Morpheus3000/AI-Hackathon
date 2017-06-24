@@ -3,6 +3,7 @@ import facedetector
 from closest import closest
 from imutils.video import FileVideoStream
 from itertools import groupby as g
+import argparse
 
 import time 
 import requests
@@ -10,16 +11,8 @@ import cv2
 import operator
 import numpy as np
 import math
+import json
 
-
-
-# Variables
-
-_url = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize'
-_key = '418f9d88e1c34fabb4cb1fa9e7dab1fc'
-_maxNumRetries = 10
-
-	
 def most_common(L):
 	counter = {}
 	for word in L:
@@ -97,94 +90,117 @@ def processRequest( json, data, headers, params ):
 		
 	return result
 	
+def extractEmotions(fileName, frameWindow, frameRate):
+	fvs = FileVideoStream(fileName).start()
+	time.sleep(1.0)
 	
-fvs = FileVideoStream('.\cut2.mp4').start()
-time.sleep(1.0)
+	frameId = 0
+	initial = True
+	nm = 0
 
-
-frameWindow = 3
-frameRate = 15
-frameId = 0
-initial = True
-nm = 0
-
-frame = fvs.read()
-while fvs.more():
-	if ( int(frameId-frameWindow/2) % frameRate == 0):
-		# collect emitions in the frameWindow
-		for j in range(frameWindow):
-			curr_tl = []
-			# data = frame.tobytes()
-			cv2.imwrite('img.jpg', frame)
-			pathToFileInDisk = r'.\img.jpg'
-			with open( pathToFileInDisk, 'rb' ) as f:
-				data = f.read()
-			if (data is None):
-				break
-				
-			headers = dict()
-			headers['Ocp-Apim-Subscription-Key'] = _key
-			headers['Content-Type'] = 'application/octet-stream'
-			json = None
-			params = None
-			
-			result = processRequest( json, data, headers, params )
-			if result is not None:
-				if initial:
-					emotionDictionary = dict()
-					avgEmotionDictionary = dict()
-					nmFaces = len(result)
-					for i in range(nmFaces):
-						emotionDictionary[i] = []
-						avgEmotionDictionary[i] = []
-					for (i, currFace) in enumerate(result):
-						faceRectangle = currFace['faceRectangle']
-						tl = (faceRectangle['left'],faceRectangle['top'])
-						currEmotion = max(currFace['scores'].items(), key=operator.itemgetter(1))[0]
-						emotionDictionary[i].append(currEmotion)
-						curr_tl.append(tl)
-					initial = False
+	frame = fvs.read()
+	while fvs.more():
+		if ( int(frameId-frameWindow/2) % frameRate == 0):
+			# collect emitions in the frameWindow
+			for j in range(frameWindow):
+				curr_tl = []
+				# data = frame.tobytes()
+				cv2.imwrite('img.jpg', frame)
+				pathToFileInDisk = r'.\img.jpg'
+				with open( pathToFileInDisk, 'rb' ) as f:
+					data = f.read()
+				if (data is None):
+					break
 					
-					# data8uint = np.fromstring( data, np.uint8 ) # Convert string to an unsigned int array
-					# img = cv2.cvtColor( cv2.imdecode( data8uint, cv2.IMREAD_COLOR ), cv2.COLOR_BGR2RGB )
-					# renderResultOnImage( result, img )
-					# cv2.imshow('img', img)
-					# cv2.waitKey(2)
-				else:
-					for currFace in result:
-						faceRectangle = currFace['faceRectangle']
-						tl = (faceRectangle['left'],faceRectangle['top'])
-						index = closest(prev_tl, tl)
-						currEmotion = max(currFace['scores'].items(), key=operator.itemgetter(1))[0]
-						emotionDictionary[index].append(currEmotion)
-						curr_tl.append(tl)
-					
-					# data8uint = np.fromstring( data, np.uint8 ) # Convert string to an unsigned int array
-					# img = cv2.cvtColor( cv2.imdecode( data8uint, cv2.IMREAD_COLOR ), cv2.COLOR_BGR2RGB )
-					# renderResultOnImage( result, img )
-					# cv2.imshow('img', img)
-					# cv2.waitKey(2)
+				headers = dict()
+				headers['Ocp-Apim-Subscription-Key'] = _key
+				headers['Content-Type'] = 'application/octet-stream'
+				json = None
+				params = None
 				
-				prev_tl = curr_tl
+				result = processRequest( json, data, headers, params )
+				if result is not None:
+					if initial:
+						emotionDictionary = dict()
+						avgEmotionDictionary = dict()
+						nmFaces = len(result)
+						for i in range(nmFaces):
+							emotionDictionary[i] = []
+							avgEmotionDictionary[i] = []
+						for (i, currFace) in enumerate(result):
+							faceRectangle = currFace['faceRectangle']
+							tl = (faceRectangle['left'],faceRectangle['top'])
+							currEmotion = max(currFace['scores'].items(), key=operator.itemgetter(1))[0]
+							emotionDictionary[i].append(currEmotion)
+							curr_tl.append(tl)
+						initial = False
+						
+						# data8uint = np.fromstring( data, np.uint8 ) # Convert string to an unsigned int array
+						# img = cv2.cvtColor( cv2.imdecode( data8uint, cv2.IMREAD_COLOR ), cv2.COLOR_BGR2RGB )
+						# renderResultOnImage( result, img )
+						# cv2.imshow('img', img)
+						# cv2.waitKey(2)
+					else:
+						for currFace in result:
+							faceRectangle = currFace['faceRectangle']
+							tl = (faceRectangle['left'],faceRectangle['top'])
+							index = closest(prev_tl, tl)
+							currEmotion = max(currFace['scores'].items(), key=operator.itemgetter(1))[0]
+							emotionDictionary[index].append(currEmotion)
+							curr_tl.append(tl)
+						
+						# data8uint = np.fromstring( data, np.uint8 ) # Convert string to an unsigned int array
+						# img = cv2.cvtColor( cv2.imdecode( data8uint, cv2.IMREAD_COLOR ), cv2.COLOR_BGR2RGB )
+						# renderResultOnImage( result, img )
+						# cv2.imshow('img', img)
+						# cv2.waitKey(2)
+					
+					prev_tl = curr_tl
 
-			print(frameId)
-			frameId += 1
+				# print(frameId)
+				frameId += 1
+				time.sleep(0.01)
+				frame = fvs.read()
+				if not fvs.more():
+					break
+
+			# Select the avg emotion per person
+			for (person, emotions) in emotionDictionary.items():
+				avgEmotionDictionary[person].append(most_common(emotions))
+			for i in range(nmFaces):
+				emotionDictionary[i] = []			
+		
+		else:
 			time.sleep(0.01)
 			frame = fvs.read()
-			if not fvs.more():
-				break
+			# print(frameId)
+			frameId += 1
+		
+	fvs.stop()
+	print(avgEmotionDictionary)
+	
+	return avgEmotionDictionary
 
-		# Select the avg emotion per person
-		for (person, emotions) in emotionDictionary.items():
-			avgEmotionDictionary[person].append(most_common(emotions))
-		for i in range(nmFaces):
-			emotionDictionary[i] = []			
+
+# Variables
+_url = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize'
+_key = '418f9d88e1c34fabb4cb1fa9e7dab1fc'
+_maxNumRetries = 10
 	
-	else:
-		time.sleep(0.01)
-		frame = fvs.read()
-		print(frameId)
-		frameId += 1
+ap = argparse.ArgumentParser()
+ap.add_argument("-v", "--video", required=True, help="path to input video file")
+ap.add_argument("-o", "--output", required=True, help="path to json output")
+ap.add_argument("-w", "--window", required=False, help="frame window to average emotion across", default=3)
+ap.add_argument("-r", "--rate", required=False, help="frame rate to extract emotions", default=15)
+args = vars(ap.parse_args())	
 	
-fvs.stop()
-print(avgEmotionDictionary)
+fileName = args["video"]
+frameWindow = args["window"]
+frameRate = args["rate"]
+
+dict = extractEmotions(fileName, frameWindow, frameRate)
+
+with open(args["output"], 'w') as outfile:
+    json.dump(dict, outfile)
+
+
