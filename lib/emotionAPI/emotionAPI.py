@@ -13,7 +13,7 @@ import numpy as np
 import math
 import json
 
-def most_common(L):
+def frequency(L):
 	counter = {}
 	for word in L:
 		 if word in counter:
@@ -21,9 +21,7 @@ def most_common(L):
 		 else:
 			 counter[word] = 1
 	 
-	sort = sorted(counter, key = counter.get, reverse = True)
-	 
-	return sort[0]
+	return sorted(counter, key = counter.get, reverse = True), counter
 	
 def renderResultOnImage( result, img ):
 	
@@ -123,6 +121,7 @@ def extractEmotions(fileName, frameWindow, frameRate):
 					if initial:
 						emotionDictionary = dict()
 						avgEmotionDictionary = dict()
+						# agreements = []
 						nmFaces = len(result)
 						for i in range(nmFaces):
 							emotionDictionary[i] = []
@@ -165,11 +164,16 @@ def extractEmotions(fileName, frameWindow, frameRate):
 					break
 
 			# Select the avg emotion per person
+			emotionsAtTimepoint = []
 			for (person, emotions) in emotionDictionary.items():
-				avgEmotionDictionary[person].append(most_common(emotions))
+				mc_emotion, _ = frequency(emotions)
+				avgEmotionDictionary[person].append(mc_emotion[0])
+				# emotionsAtTimepoint.append(mc_emotion[0])
 			for i in range(nmFaces):
 				emotionDictionary[i] = []			
-		
+			# print(emotionsAtTimepoint)
+			emotions, freqDict  = frequency(emotionsAtTimepoint)
+			# agreements.append(freqDict[emotions[0]]/nmFaces)
 		else:
 			time.sleep(0.01)
 			frame = fvs.read()
@@ -178,6 +182,7 @@ def extractEmotions(fileName, frameWindow, frameRate):
 		
 	fvs.stop()
 	print(avgEmotionDictionary)
+	# print(agreements)
 	
 	return avgEmotionDictionary
 
