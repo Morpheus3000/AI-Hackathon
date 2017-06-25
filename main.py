@@ -17,11 +17,13 @@ def main():
   with open('api_keys/ray.yml', 'r') as f:
     keys = yaml.load(f)
 
-  conference_video = 'data/Demo.mp4'
+  conference_video = 'data/akshaya.mov'
   cap = video.parse(conference_video)
 
+  print(cap)
+
   # frame_count = video.frames(cap)
-  wavs_dir = 'data/wavs'
+  wavs_dir = 'data/akshaya'
   duration = video.duration(cap)
   if not os.path.exists(wavs_dir):
     audio_files = video.audio(conference_video, duration)
@@ -31,14 +33,14 @@ def main():
 
   # print(audio_files)
 
-  demo_path = 'lib/visualization/Demo.csv'
+  demo_path = 'data/akshaya/Demo_ashaya.csv'
   if not os.path.exists(demo_path):
     speech_data = speech.parse(audio_files, keys)
     speech_data.to_csv(demo_path)
   else:
     speech_data = pd.read_csv(demo_path)
 
-  score_path = 'lib/visualization/score.csv'
+  score_path = 'data/akshaya/score_ashaya.csv'
   if not os.path.exists(score_path):
     speech_data = update.text.data_frame(speech_data)
     speech_data.to_csv(score_path)
@@ -47,9 +49,9 @@ def main():
 
   # print(speech_data)
 
-  plot.statistics(speech_data)
+  # plot.statistics(speech_data)
 
-  topics_path = 'lib/visualization/topics.csv'
+  topics_path = 'data/akshaya/topics_ashaya.csv'
   if not os.path.exists(topics_path):
     speech_data = update.topics.data_frame(speech_data)
     speech_data.to_csv(topics_path)

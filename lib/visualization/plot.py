@@ -141,3 +141,6 @@ def topics(speech_data):
   # plt.show()
 
   # print(sorted(topics, key=lambda x: (int(x[0]), float(x[2]))))
+
+
+# plt.plot(ts, score)

@@ -1,0 +1,121 @@
+conversation
+
+actors: group_leader = arthur, member_1 = ray, member_2 = adam, member_3 = akshaya
+
+
+group_leader: Hi Guys, how is everyone?
+
+everyone: (general murmuring and some agreement)
+
+group_leader: Haha I know its hard to pull yourself away from you work but we'll be quick and then we can go to lunch. So lets start with (member_1).. how is the (part of project) going?
+
+
+
+### member_1 is main speaker
+
+member_1: So as a quick update, the (fill) has been completed and the (other fill) is in progress..
+
+member_2: does that include the (addition to other fill)?
+
+member_1: Yeah we're working on it but the (thing) is being painful. The server is returning (annoying error) and it seems to be in related to (our input from application)
+
+member_2: the (option 1) or (option 2)?
+
+member_1: we think (option 1) but they are linked and untying is very difficult..
+
+member_3: I have some experience with (both options) and i've found that (some hack) can work as a temporary solution..
+
+member_1: oh really? we have tried that yet, maybe you can walk us through it?
+
+
+(general discussion between member_1 and member_3 for a minute or two)
+
+
+group_leader: good idea (member_1), (member_3) can you set aside some time this afternoon to test (hacky fix)
+
+member_3: yeah sounds good, although im not hopeful it will work as we were using (some other framework)
+
+group_leader: ok, well give it a go and see what happens. dont let it take too long though..
+
+group_leader: so then what about you (member_2), how is the (some different aspect of the project) going? you said yesterday about (random bug), how is that?
+
+
+
+
+### member_2 is main speaker
+
+member_2: Thanks (group_leader), yeah its ok i guess. we're trying (some thing) and (some things) but it will take a while until we know the full results.
+
+member_3: How is (another thing)?
+
+member_2: Not bad, we testing (the thing) but nothing conclusive
+
+member_1: the (thing) didnt have any effect on the results?
+
+member_2: Not as we saw
+
+group_leader: do your team want some help with (the thing)?
+
+member_2: eeeehh.. we can keep testing (the thing)
+
+group_leader: but you dont want (some other team member) to help? i think he has some good experience you could make use of..
+
+member_2: we're ok (look annoyed) for now, we can handle it
+
+group_leader: im not saying you cant but it would be nice to finish this week so we can move on to (second project)
+
+member_2: okok.. we'll try to wrap it up soon
+
+group_leader: hmm ok.. keep me updated then..
+
+group_leader: well we'll get back to that tomorrow then maybe but for now lets move on to (member_3) and (a customer complaint).. this could be really bad, (the product) should have easily coped with (this complaint) and (secondary system) would be hard to update right now.. what can be done?
+
+
+
+### member_3 is main speaker
+
+member_3: yep, (the customer) has been ringing almost every day for a week. supposedly they cant get (some content) returned from (our product). The annoying thing is (one dependency) is working and (some other dependency) is also working. we have tested the api given (a fake client) to test their use case.. but get no errors. (the customer) is adamant that (the error) is happening on our side as his calls are strictly adhering to the api..
+
+member_1: so what about (some condition of the api)?
+
+member_3: (the customer) says its valid
+
+member_1: he is formatting (something to format) correctly?
+
+member_3: yeah so he says
+
+member_1: but then they are the only real requirements, as long as (some object) is not empty there would be more returned than (the error)
+
+member_3: yeah, right.. i cant just tell him that he is wrong though, (the customer) is already upset that (the error) occured as his guest were visiting
+
+member_1: its not our fault if he tries to demo (some faulty software) for guest but doesnt confirm it functions beforehand
+
+group_leader: thats a very harsh opinion.. we can do more to help our customers
+
+member_1: we cant write their software for them..
+
+member_2: (hah)
+
+member_3: but we will double check everything our end anyway
+
+group_leader: makes sense.. if there arent any issues bring (the case) to me, i'll politely tell (the customer) to rebuild their code and make sure (an object) is not empty.. probably they were making empty calls to make a demo happen quickly (or something) and didnt consider (they are idiots)
+
+all: (laugh)
+
+group_leader: anything else to discuss?
+
+member_1: i think (member_2) should try (a random fix) again, it works for (specific scenario)
+
+member_2: we'll see dude, it hasnt worked so far
+
+member_1: probably you didnt try correctly, let me look through it
+
+member_2: we can figure it out, but i'll take your advice
+
+member_1: dont be so stubborn, we need to get it sorted soon..
+
+group_leader: (interrupting) lets take it off-line guys, better to move on with the day..
+
+group_leader: who's for lunch?
+
+all: (agreeing noises)

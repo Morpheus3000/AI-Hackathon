@@ -54,7 +54,7 @@ def duration(cap):
 
 def audio(path, duration, overlap=5000):
 
-  audio_path = path[:path.find('/')] + "/wavs" + path[path.find('/'):]
+  audio_path = path[:path.find('/')] + "/akshaya" + path[path.find('/'):]
 
   # print(os.path.exists(path))
 
