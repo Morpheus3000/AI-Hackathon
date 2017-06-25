@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-
+const path = require('path');
 
 /************************************************************
  *
@@ -34,6 +34,7 @@ app.get('/style.css', function(req, res) {
 });
 
 app.use(express.static(__dirname + '/build'));
+// app.use(express.static(path.join(__dirname, '/../public')));
 
 // Serve index page
 app.get('*', function(req, res) {
