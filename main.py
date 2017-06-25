@@ -18,16 +18,16 @@ def main():
     keys = yaml.load(f)
 
   conference_video = 'data/Demo.mp4'
-  cap = video.parse(conference_video)
+  # cap = video.parse(conference_video)
 
   # frame_count = video.frames(cap)
-  wavs_dir = 'data/wavs'
-  duration = video.duration(cap)
-  if not os.path.exists(wavs_dir):
-    audio_files = video.audio(conference_video, duration)
-  else:
-    audio_files = [f for f in os.listdir(
-        wavs_dir) if os.path.isfile(os.path.join(wavs_dir, f))]
+  # wavs_dir = 'data/wavs'
+  # duration = video.duration(cap)
+  # if not os.path.exists(wavs_dir):
+  #   audio_files = video.audio(conference_video, duration)
+  # else:
+  #   audio_files = [f for f in os.listdir(
+  #       wavs_dir) if os.path.isfile(os.path.join(wavs_dir, f))]
 
   # print(audio_files)
 
@@ -47,7 +47,7 @@ def main():
 
   # print(speech_data)
 
-  plot.statistics(speech_data)
+  # plot.statistics(speech_data)
 
   topics_path = 'lib/visualization/topics.csv'
   if not os.path.exists(topics_path):
@@ -58,7 +58,7 @@ def main():
 
   # print(speech_data)
   # json_path = 'data/topics_sample_output.json'
-  plot.topics(speech_data)
+  # plot.topics(speech_data)
 
   print(speech_data)
 
