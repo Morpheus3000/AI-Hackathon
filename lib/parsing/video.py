@@ -54,8 +54,9 @@ def duration(cap):
 
 def audio(path, duration, overlap=5000):
 
-  audio_path = path[:path.find('/')] + "/wavs" + path[path.find('/'):]
+  audio_path = 'Data/wavs/output'
 
+  print(audio_path)
   # print(os.path.exists(path))
 
   audio_files = []
@@ -70,17 +71,22 @@ def audio(path, duration, overlap=5000):
     #       ' -t 00:00:10.0 -q:a 0 -map a '
     #       + outfile)
 
-    subprocess.call(
+    # subprocess.call(
+    #     'ffmpeg -y -i ' + path +
+    #     ' -ac 1 -ar 16000 -ss ' + hhmmss +
+    #     ' -t 00:00:10.0 -q:a 0 -map a '
+    #     + outfile, stdout=None, stderr=subprocess.STDOUT)
+
+    os.system(
         'ffmpeg -y -i ' + path +
         ' -ac 1 -ar 16000 -ss ' + hhmmss +
         ' -t 00:00:10.0 -q:a 0 -map a '
-        + outfile, stdout=None, stderr=subprocess.STDOUT)
-    # + ' &> /dev/null')
+        + outfile + ' &> /dev/null')
 
     # print(outfile)
 
-    if (int(ss) % 90000 == 0):
-      print('Processed %s' % hhmmss)
+    # if (int(ss) % 90000 == 0):
+    print('Processed %s' % hhmmss)
 
     audio_files.append(outfile)
 

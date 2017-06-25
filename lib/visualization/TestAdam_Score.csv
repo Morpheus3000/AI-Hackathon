@@ -1,0 +1,4 @@
+,Unnamed: 0,confidence,start_second,text,sentiment_score,key_phrases
+0,0,0.7594839,0,hello this is it a try or system,0.5,[u'system']
+1,1,0.0,10000,,0.5,[u'NaN']
+2,2,0.7313475,5000,admission system open talking with,0.5,[u'admission system']
