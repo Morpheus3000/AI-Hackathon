@@ -1,11 +1,12 @@
 from lib.speechAPI import speech
 from lib.parsing import video
 from lib.visualization import plot
-from lib.textAnalyticsAPI import api_update
+import lib.textAnalyticsAPI.update as update  # import api_update
 
 import yaml
 import os
 import pandas as pd
+import json
 
 
 def main():
@@ -20,7 +21,7 @@ def main():
   cap = video.parse(conference_video)
 
   # frame_count = video.frames(cap)
-  wavs_dir = 'data/wav'
+  wavs_dir = 'data/wavs'
   duration = video.duration(cap)
   if not os.path.exists(wavs_dir):
     audio_files = video.audio(conference_video, duration)
@@ -30,16 +31,16 @@ def main():
 
   # print(audio_files)
 
-  demo_path = 'data/csv/Demo.csv'
+  demo_path = 'lib/visualization/Demo.csv'
   if not os.path.exists(demo_path):
     speech_data = speech.parse(audio_files, keys)
     speech_data.to_csv(demo_path)
   else:
     speech_data = pd.read_csv(demo_path)
 
-  score_path = 'data/csv/score.csv'
+  score_path = 'lib/visualization/score.csv'
   if not os.path.exists(score_path):
-    speech_data = api_update.data_frame(speech_data)
+    speech_data = update.text.data_frame(speech_data)
     speech_data.to_csv(score_path)
   else:
     speech_data = pd.read_csv(score_path)
@@ -47,7 +48,20 @@ def main():
   # print(speech_data)
 
   plot.statistics(speech_data)
-  # plot.keywords(speech_data)
+
+  topics_path = 'lib/visualization/topics.csv'
+  if not os.path.exists(topics_path):
+    speech_data = update.topics.data_frame(speech_data)
+    speech_data.to_csv(topics_path)
+  else:
+    speech_data = pd.read_csv(topics_path)
+
+  # print(speech_data)
+  # json_path = 'data/topics_sample_output.json'
+  plot.topics(speech_data)
+
+  print(speech_data)
+
 
 if __name__ == '__main__':
   main()
