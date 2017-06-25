@@ -1,5 +1,3 @@
-# USAGE
-# python read_frames_fast.py --video videos/jurassic_park_intro.mp4
 
 # import the necessary packages
 from imutils.video import FileVideoStream

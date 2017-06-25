@@ -12,6 +12,7 @@ from lib.textAnalyticsAPI import api_requests
 def add_text_analysis(base_df, sentiment_data, key_phrase_data):
 
   sentiment_dict = {}
+  # print(sentiment_data)
   for entry in json.loads(sentiment_data)["documents"]:
     sentiment_dict[int(entry["id"])] = entry["score"]
 
