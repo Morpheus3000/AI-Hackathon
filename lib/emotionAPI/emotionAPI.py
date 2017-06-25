@@ -195,8 +195,8 @@ _maxNumRetries = 10
 ap = argparse.ArgumentParser()
 ap.add_argument("-v", "--video", required=True, help="path to input video file")
 ap.add_argument("-o", "--output", required=True, help="path to json output")
-ap.add_argument("-w", "--window", required=False, help="frame window to average emotion across", default=3)
-ap.add_argument("-r", "--rate", required=False, help="frame rate to extract emotions", default=15)
+ap.add_argument("-w", "--window", required=False, help="frame window to average emotion across", default=1)
+ap.add_argument("-r", "--rate", required=False, help="frame rate to extract emotions", default=180)
 args = vars(ap.parse_args())	
 	
 fileName = args["video"]

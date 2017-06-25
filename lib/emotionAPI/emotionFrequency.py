@@ -13,16 +13,30 @@ def frequency(L):
 	 
 	return sorted(counter, key = counter.get, reverse = True), counter
 
+data = dict()
+with open('adam.json', 'r') as f:
+	adam = json.load(f)
+	for a,v in adam.items():
+		data['adam'] = v
 
-with open('emotions.json', 'r') as f:
-	data = json.load(f)
+with open('aksha.json', 'r') as f:
+	aksha = json.load(f)
+	for a,v in aksha.items():
+		data['aksha'] = v
+		
+with open('arthur.json', 'r') as f:
+	arthur = json.load(f)
+	for a,v in arthur.items():
+		data['arthur'] = v
+
+	
 	agreement = []
 	for emotions in np.asarray(list(data.values())).T:
 		sort, counter = frequency(emotions)
 		a = counter[sort[0]]
 		for j in range(1, len(sort)):
 			a -= counter[sort[j]]
-		agreement.append((a/len(emotions)*2)-1)
+		agreement.append((2*(a/len(emotions)))-1)
 	
 	print(agreement)
 	
