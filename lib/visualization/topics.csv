@@ -1,0 +1,111 @@
+,Unnamed: 0,Unnamed: 0.1,confidence,start_second,text,sentiment_score,key_phrases,topic_id,topic_distance,topic_phrase,topic_score
+0,0,0,0.8694921,0,here is an example of an online meeting with 2 teams want to discuss the new project to build a convention center on a piece of land,0.5,"[u'convention center', u'teams', u'new project', u'online meeting', u'piece of land']",e14c22a6-91d3-42b2-8af8-a38f66d65a68,0.4119,piece of land,2.0
+89,89,89,0.8332436,5000,discount senior project to build a convention center on a piece of land owned by municipality the members of the number one,0.803016156581,"[u'convention center', u'piece of land', u'municipality', u'discount senior project']",e14c22a6-91d3-42b2-8af8-a38f66d65a68,0.4119,piece of land,2.0
+1,1,1,0.8601307,10000,owned by municipality the members of the number 1 the real estate developer or alexander in brazil,0.873992266855,"[u'real estate developer', u'number', u'alexander']",c0ef8050-65a5-4f84-b14d-33438440359c,0.643,real estate developer,3.0
+12,12,12,0.8585097,15000,the real estate developer or alexander in brazil connected with APC tom in india connected with a mac,0.978582117995,"[u'brazil', u'alexander', u'APC tom', u'india']",16828fdd-102d-4457-8eac-80deeb55e357,0.6355,mac,3.0
+23,23,23,0.803286,20000,connected with APC tom in india connected with a mac and matt in the united states connected with a mac the men,0.998397527818,"[u'mac', u'united states', u'india', u'matt']",16828fdd-102d-4457-8eac-80deeb55e357,0.5036,mac,3.0
+34,34,34,0.8605074,25000,and matt in the united states connected with a mac the members of team members to the municipality on christina,0.989679965059,"[u'members of team members', u'mac', u'united states', u'municipality']",9ee28069-63e0-4d0d-a882-1d494c160304,0.5629,municipality on christina,2.0
+45,45,45,0.7801165,30000,verse of the number to the municipality of christina in united states with the PC he ran in india with,0.9606383945,"[u'municipality of christina', u'PC', u'united states', u'number']",9ee28069-63e0-4d0d-a882-1d494c160304,0.6181,municipality on christina,2.0
+56,56,56,0.7952158,35000,united states with the PC he ran in india with the PC rancho in the united states with it BC and vicki,0.94787240789,"[u'united states', u'PC rancho', u'BC', u'vicki']",b27df96d-2688-4ca9-828c-14ccb44262a6,0.3662,ran in india,1.0
+67,67,67,0.8588976,40000,rancho in the united states with it BC and vicki in france with an iphone and I have the host,0.905894061605,"[u'vicki', u'united states', u'BC', u'iphone']",d78b657b-f777-47f6-a269-9913144b6afd,0.3662,vicki in france,1.0
+78,78,78,0.9102488,45000,in france with an iphone and I have the host of that meeting I'm in the united states and I'm connected with mac first I'm going to,0.974440352752,"[u'meeting', u'united states', u'iphone', u'host', u'france', u'mac']",16828fdd-102d-4457-8eac-80deeb55e357,0.7377,mac,3.0
+90,90,90,0.8313635,50000,meeting I'm in the united states and I'm connected with mac first I'm going to have a problem meeting with the team leader,0.921882501444,"[u'problem meeting', u'team leader', u'united states', u'mac']",4299f307-9322-40ff-a939-717cd3b45407,0.5037,connected with mac,2.0
+101,101,101,0.8408668,55000,probably meeting with the team leader,0.5,[u'team leader'],,,,
+102,102,102,0.8736008,60000,thank you for participating in our online meeting at the team of the municipality,0.98979136231,"[u'team', u'online meeting', u'municipality']",d87a1d75-b3b7-44a4-82e0-8cf6aaefc35b,0.5963,municipality,5.0
+103,103,103,0.8001666,65000,you sent to the team of the municipality right so you on the piece of land where there is in a band,0.5,"[u'municipality', u'piece of land', u'band', u'team']",d87a1d75-b3b7-44a4-82e0-8cf6aaefc35b,0.571,municipality,5.0
+104,104,104,0.8304278,70000,wait so you on the pizza land at where there is an abandoned airport now second OK now,0.0999097335382,"[u'abandoned airport', u'OK', u'pizza land']",,,,
+105,105,105,0.7980197,75000,airport now secrett OK now I just wanted to double check with you that you and your,0.921912577349,"[u'airport', u'secrett']",,,,
+106,106,106,0.888496,80000,oh I want just wanted to double check with you that you and your team are ready to discuss this project today,0.936190237011,"[u'project', u'team']",,,,
+107,107,107,0.8820626,85000,not ready to discuss this project today your ready OK so let me bring alexander in OK,0.997116688522,"[u'alexander', u'project', u'OK']",56adaf06-f069-4b45-8e3b-c524bf98ac00,0.4565,bring alexander,1.0
+108,108,108,0.8792177,90000,OK so let me bring and alexander in OK,0.988262479767,"[u'OK', u'alexander']",,,,
+109,109,109,0.6814226,95000,how do you like sender,0.5,[u'sender'],,,,
+2,2,2,0.6814226,100000,how do you like sender,0.5,[u'sender'],,,,
+3,3,3,0.7991433,105000,why you are the team leader of the release date,0.5,"[u'release date', u'team leader']",f459361d-92ea-46ab-885b-43ab90860c1e,0.5037,release date,1.0
+4,4,4,0.9479974,110000,release date,0.5,[u'release date'],,,,
+5,5,5,0.3509248,115000,stena,0.5,[u'stena'],,,,
+6,6,6,0.7903788,120000,hi christina how are you OK II wanted to check with you your team is ready,0.98917350458,"[u'christina', u'II', u'team']",,,,
+7,7,7,0.8087702,125000,I wanted to check with you your team is ready,0.955610189402,[u'team'],,,,
+8,8,8,0.0,130000,,0.5,[u'NaN'],,,,
+9,9,9,0.9185224,135000,your ready OK so what I'm going to do I'm going to bring everybody back OK,0.993349256734,[u'OK'],,,,
+10,10,10,0.8652165,140000,remind me back OK,0.882763559346,[u'OK'],,,,
+11,11,11,0.9408494,145000,will take it from there,0.5,[u''],,,,
+13,13,13,0.9293665,150000,open OK thank you alright so let me bring everybody back,0.999542309969,[u'open OK'],,,,
+14,14,14,0.9148041,155000,let me bring everybody back,0.5,[u''],,,,
+15,15,15,0.8724329,160000,OK so welcome everybody and eat you know that each of you belong to different,0.994882931332,[u'OK'],,,,
+16,16,16,0.7597478,165000,and you know that you belong to a different team so christina iran rancho in the key,0.5,"[u'christina iran rancho', u'different team', u'key']",d53fda47-30cb-4ca5-aa0f-219f8357ed47,0.619,christina iran rancho,2.0
+17,17,17,0.7364162,170000,team so christina iran rancho and vicki are parts of the theme of the municipality,0.5,"[u'parts', u'vicki', u'christina iran rancho']",d53fda47-30cb-4ca5-aa0f-219f8357ed47,0.6124,christina iran rancho,2.0
+18,18,18,0.6398454,175000,part of this team municipality,0.304391912909,[u'team municipality'],,,,
+19,19,19,0.7943818,180000,in alexander and max are part of the team over real estate developer who would like to build a,0.5,"[u'team', u'real estate developer', u'max', u'alexander']",c0ef8050-65a5-4f84-b14d-33438440359c,0.3445,real estate developer,3.0
+20,20,20,0.8855618,185000,open real estate developer who would like to build a something on on that piece of land OK now just,0.904621335358,"[u'open real estate developer', u'piece of land OK']",c0ef8050-65a5-4f84-b14d-33438440359c,0.6821,real estate developer,3.0
+21,21,21,0.8606815,190000,dancing on on demand OK now just make sure that we're on the same page I'm going to share with you,0.925469204273,"[u'dancing', u'demand OK', u'page']",,,,
+22,22,22,0.8598312,195000,the same page I'm going to share with you and video showing in abandoned air,0.141876690629,"[u'abandoned air', u'page']",,,,
+24,24,24,0.81968,200000,video showing in abandoned airports OK so give me,0.159995324348,[u'abandoned airports'],,,,
+25,25,25,0.9393992,205000,OK so give me a second,0.934223909938,[u''],,,,
+26,26,26,0.921465,210000,second,0.5,[u''],,,,
+27,27,27,0.0,215000,,0.5,[u'NaN'],,,,
+28,28,28,0.9034384,220000,so this is the airport talking about it is somewhere in the world,0.5,"[u'airport', u'world']",,,,
+29,29,29,0.0,225000,,0.5,[u'NaN'],,,,
+30,30,30,0.9053225,230000,and as you can see it's not that great shape and this is a land is owned by the municipality that,0.832494209612,"[u'land', u'great shape', u'municipality']",,,,
+31,31,31,0.8657151,235000,land is owned by the municipality that today is represented by christina's team OK,0.880832593721,"[u'christina', u'municipality', u'team OK']",d87a1d75-b3b7-44a4-82e0-8cf6aaefc35b,0.522,municipality,5.0
+32,32,32,0.8474653,240000,today is represented by christina's team OK,0.889989613709,"[u'christina', u'team OK']",,,,
+33,33,33,0.9374815,245000,you can see there is a lot of work to be done so let's stop this OK,0.883113186384,"[u'lot of work', u'OK']",,,,
+35,35,35,0.9493399,250000,so let's stop this OK and let me show you something else,0.937739281849,[u'OK'],,,,
+36,36,36,0.9352655,255000,and let me show you something else,0.5,[u''],,,,
+37,37,37,0.9181576,260000,let me show you that,0.5,[u''],,,,
+38,38,38,0.9015011,265000,show you then,0.5,[u''],,,,
+39,39,39,0.9314336,270000,the first sign of the convention center,0.5,[u'convention center'],,,,
+40,40,40,0.756205,275000,find all the convention center,0.5,[u'convention center'],,,,
+41,41,41,0.8740751,280000,alexander team would like to build OK so do you all save image on screen,0.982277974713,"[u'alexander team', u'image', u'screen']",,,,
+42,42,42,0.8129806,285000,please do you all see the image on your screen OK you can see is it is a pretty new,0.9964439717,"[u'image', u'screen']",,,,
+43,43,43,0.853365,290000,OK as you can see is it is a pretty new modern and convention center with,0.996526333138,"[u'convention center', u'OK']",e5a053c7-739b-459a-8d3f-91df53b7c55e,0.3,convention center,4.0
+44,44,44,0.8770787,295000,modern and convention center with space also for,0.854199366493,"[u'space', u'convention center']",514ff113-7980-443f-bf3d-524fb5dcea91,0.3,convention center with space,1.0
+46,46,46,0.8723476,300000,hello to space also for for taking a nap like this people here,0.5,"[u'nap', u'space', u'people']",,,,
+47,47,47,0.8510023,305000,will taking an act like this people yeah right OK so let me clear this,0.996271885161,"[u'OK', u'act', u'people']",,,,
+48,48,48,0.8546211,310000,alright OK so let me clear this let me stop this OK so now that we know which branch,0.996839136827,"[u'OK', u'branch']",,,,
+49,49,49,0.8633067,315000,stop this OK so now that we know which projects were talking about I think it would be useful is,0.924014606965,"[u'OK', u'projects']",,,,
+50,50,50,0.7950832,320000,we're talking about I think it would be useful if I give you a give each team deporte unity too,0.958879860794,[u'team deporte unity'],,,,
+51,51,51,0.7929698,325000,I give you a give each team deprotonated to brainstorm some ideas ask you some questions OK,0.98461260414,"[u'ideas', u'team', u'OK']",,,,
+52,52,52,0.8472199,330000,bridgestone somebody's <profanity>ass</profanity> coz I'm final questions OK so I'm going to create 2 separate rooms for each team,0.94897742672,"[u'profanity', u'coz', u'team', u'separate rooms', u'ass', u'final questions']",859f5ebf-4e95-46fd-975f-b1cc19bfeb75,0.5956,final questions,2.0
+53,53,53,0.918181,335000,so I'm going to create 2 separate rooms for each team and then I'm going to join each team ask you if you have any,0.959643267665,"[u'team', u'separate rooms']",,,,
+54,54,54,0.9383692,340000,then I'm going to join each team ask you if you have any final questions hopefully you will not have any questions and then I'll bring your back,0.968961339863,"[u'final questions', u'team']",859f5ebf-4e95-46fd-975f-b1cc19bfeb75,0.5673,final questions,2.0
+55,55,55,0.9199921,345000,funny questions hopefully you will not have any questions and then I'll bring your back together and then we will decide what is going to happen next,0.977733900261,[u'questions'],,,,
+57,57,57,0.9446918,350000,and then we will decide what is going to happen next OK so let me create some breakout rooms,0.961365336435,"[u'breakout rooms', u'OK']",,,,
+58,58,58,0.9283267,355000,so let me create some breakout rooms game,0.955362828991,[u'breakout rooms game'],,,,
+59,59,59,0.9378752,360000,OK,0.5,[u'OK'],,,,
+60,60,60,0.8062789,365000,alexander match tom and then with iran christina rachel,0.5,"[u'alexander match tom', u'iran christina rachel']",5ef2f1b4-ce3f-43bd-add5-3e46391a964a,0.698,iran christina rachel,2.0
+61,61,61,0.6846986,370000,and then with iran christina rachel and vicki OK,0.88925908807,"[u'iran christina rachel', u'vicki OK']",5ef2f1b4-ce3f-43bd-add5-3e46391a964a,0.6064,iran christina rachel,2.0
+62,62,62,0.8023717,375000,enwiki OK,0.5,[u'enwiki OK'],,,,
+63,63,63,0.0,380000,,0.5,[u'NaN'],,,,
+64,64,64,0.0,385000,,0.5,[u'NaN'],,,,
+65,65,65,0.0,390000,,0.5,[u'NaN'],,,,
+66,66,66,0.7324934,395000,well I add a good news it seems that,0.739908875168,[u'good news'],,,,
+68,68,68,0.8282356,400000,well I add a good news it seems that both your teams are ready,0.947393804931,"[u'teams', u'good news']",,,,
+69,69,69,0.7891321,405000,set up both your teams are ready,0.930524643479,[u'teams'],,,,
+70,70,70,0.9370316,410000,OK,0.5,[u'OK'],,,,
+71,71,71,0.8801955,415000,is that the next time is going to be at meeting in london in march,0.5,"[u'meeting', u'london', u'march']",,,,
+72,72,72,0.9283939,420000,in london in march,0.5,[u'london'],,,,
+73,73,73,0.7639273,425000,finalize project OK,0.5,[u'project OK'],,,,
+74,74,74,0.6515395,430000,details,0.5,[u'details'],,,,
+75,75,75,0.6133116,435000,mike 2,0.5,[u'mike'],,,,
+76,76,76,0.8837723,440000,and that's right OK so let me,0.950711364969,[u'OK'],,,,
+77,77,77,0.8421257,445000,OK so let me be OK with you I'm going to,0.983434582371,[u'OK'],,,,
+79,79,79,0.8526945,450000,you have a great day,0.990704021171,[u'great day'],,,,
+80,80,80,0.4494751,455000,repair laptop,0.5,[u'repair laptop'],,,,
+81,81,81,0.8368908,460000,it don't get meant OK and the document is going to be very easy,0.936991991217,"[u'OK', u'document']",,,,
+82,82,82,0.9165909,465000,the document is going to be very easy,0.914722502112,[u'document'],,,,
+83,83,83,0.9157305,470000,in agreement,0.736994142309,[u'agreement'],,,,
+84,84,84,0.9382552,475000,regarding this convention center,0.5,[u'convention center'],,,,
+85,85,85,0.8442786,480000,center,0.5,[u'center'],,,,
+86,86,86,0.7933053,485000,as you can see it's very simple agreement you have a great and christina,0.994787816602,"[u'simple agreement', u'christina']",,,,
+87,87,87,0.9013675,490000,agreed and christina,0.8309549455,[u'christina'],,,,
+88,88,88,0.8940083,495000,christina and alexander will discuss,0.5,[u'christina'],,,,
+91,91,91,0.8837392,500000,alexander will discuss and resolve any final issues,0.768871006482,"[u'final issues', u'alexander']",b9640cc5-4dca-4e9c-a9ba-2f6e4de29a75,0.4565,final issues,2.0
+92,92,92,0.9091355,505000,can resolve any final issues before the meeting,0.289759401297,"[u'meeting', u'final issues']",b9640cc5-4dca-4e9c-a9ba-2f6e4de29a75,0.7821,final issues,2.0
+93,93,93,0.8994331,510000,before the meeting,0.5,[u'meeting'],,,,
+94,94,94,0.8890827,515000,are you OK with this so I'm going to,0.898761811647,[u''],,,,
+95,95,95,0.8328682,520000,OK so I'm going to have to convert a document into a PDF file into going to send it to you by email OK,0.964924717944,"[u'document', u'PDF', u'email OK']",,,,
+96,96,96,0.8360402,525000,youtube video file in it going to send it to you by email OK alright I think will done in saint,0.992655303959,"[u'email OK', u'youtube video', u'saint']",,,,
+97,97,97,0.853125,530000,right I think will done and thank you very much so will see you all next month in london,0.990678207915,"[u'month', u'london']",,,,
+98,98,98,0.9302294,535000,so will see you all next month in london,0.5,"[u'month', u'london']",,,,
+99,99,99,0.3272237,540000,hey,0.5,[u''],,,,
+100,100,100,0.0,545000,,0.5,[u'NaN'],,,,

@@ -4,7 +4,8 @@ import json
 import requests
 import urllib
 import httplib
-# import base64
+import base64
+import time
 
 
 def generate_json(pd_text):
@@ -59,8 +60,6 @@ def process_text(json_request):
 
 
 def process_topics(json_request):
-  print json_request
-
   header = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -68,22 +67,11 @@ def process_topics(json_request):
   }
   try:
     conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    print 1
     conn.request("POST", "/text/analytics/v2.0/topics", json_request, header)
-    print 2
     response = conn.getresponse()
-    print 3
-    print response.status
-    print response.reason
-    print response.msg
-
     output_address = response.getheader("operation-location")
-    print 4
-    print response.getheaders()
     operation_id = output_address.split("/")[-1]
-
     print "OperationId: ", operation_id
-
     conn.close()
 
     request_status = "NotStarted"
@@ -108,7 +96,5 @@ def process_topics(json_request):
     return None
 
   except Exception as e:
-
-    print(e)
-    # print("[Errno {0}] {1}".format(e.errno, e.strerror))
-    # return None
+    print("[Errno {0}] {1}".format(e.errno, e.strerror))
+    return None

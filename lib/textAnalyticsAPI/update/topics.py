@@ -12,10 +12,7 @@ from lib.textAnalyticsAPI import api_requests
 def add_topic_analysis(base_df, topic_data, assignment_data):
   assignment_dict = {}
   distance_dict = {}
-
-  print(assignment_data)
-
-  for entry in assignment_data['documents']:
+  for entry in assignment_data:
     assignment_dict[int(entry["documentId"])] = entry["topicId"]
     distance_dict[int(entry["documentId"])] = entry["distance"]
 
@@ -38,7 +35,6 @@ def add_topic_analysis(base_df, topic_data, assignment_data):
   final_pd["topic_distance"] = pd.Series(distance_dict)
   final_pd = pd.merge(final_pd, topic_pd, on="topic_id", how="left")
   final_pd.sort_values("start_second", inplace=True)
-
   return final_pd
 
 
